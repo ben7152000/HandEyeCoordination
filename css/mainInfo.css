@@ -1,0 +1,13 @@
+/* 介紹區域 */
+.main-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    z-index: 1;
+}

@@ -1,0 +1,92 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #000000;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    user-select:none; /* standard syntax */
+    -webkit-user-select:none; /* for Chrome、Safari */
+    -moz-user-select:none; /* for Mozilla、Firefox */
+    pointer-events: none;
+}
+
+.bg-green {
+    background-color: #00EB00 !important;
+}
+
+.bg-red {
+    background-color: #EB0001 !important;
+}
+
+#app {
+    position: relative;
+    width: 960px;
+    height: 600px;
+    background-color: #d1d1d1;
+}
+
+canvas {
+    position: absolute;
+}
+
+/* logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    z-index: 2;
+}
+
+/* 放大按鈕 */
+.screen-enlarge {
+    width: 50px;
+    height: 50px;
+    margin: 32px 0 16px;
+}
+
+/* 按鈕 */
+.btn {
+    width: 190px;
+    height: 40px;
+    outline: none;
+    border: 1px solid #1d1d1d;
+    border-radius: 2px;
+    font-size: 26px;
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+.button {
+    position: relative;
+    width: 80px;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    font-size: 20px;
+    background-color: #867F79;
+    cursor: pointer;
+}

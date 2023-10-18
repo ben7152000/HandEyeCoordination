@@ -1,0 +1,32 @@
+/* 結果資訊 */
+.result-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    z-index: 1;
+}
+
+.result-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.result-content h1 {
+    font-size: 36px;
+    font-weight: 300;
+    margin-right: 200px;
+}
+
+.result-content span {
+    font-size: 36px;
+    font-weight: 600;
+}

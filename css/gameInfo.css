@@ -1,0 +1,160 @@
+/* 遊戲資訊 */
+.game-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 960px;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+    background-color: #E0E0E0;
+    z-index: 1;
+}
+
+.game-score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.score-title,
+.speed-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #373737;
+    text-shadow: 1px 1px 1px #7C7C7C;
+}
+
+#game-score,
+#game-speed {
+    margin-left: 10px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #7C7C7C;
+}
+
+.game-speed {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.game-time {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #7C7C7C;
+}
+
+#game-time-min,
+#game-time-sec {
+    font-size: 50px;
+}
+
+.game-content {
+    position: relative;
+    width: 360px;
+    height: 100%;
+}
+
+.interface-control {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ball-interface {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+#ball-interface-control {
+    position: absolute;
+    left: 165px;
+    top: 135px;
+}
+
+.game-control {
+    position: absolute;
+    top: 400px;
+    left: 0;
+    width: 360px;
+    height: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drag-control {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #0F7EBF, #1E5690);
+}
+
+.ball-control {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+#ball-control {
+    position: absolute;
+    left: 65px;
+    top: 65px;
+    cursor: pointer;
+}
+
+.speed-control {
+    width: 190px;
+    height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.up,
+.down {
+    width: 190px;
+    height: 77px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, #0F7EBF, #1E5690);
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.up img,
+.down img {
+    width: 60px;
+    height: 60px;
+}
+
+.up:active,
+.down:active {
+    background-image: linear-gradient(90deg, #1E5690 ,#0F7EBf );
+}

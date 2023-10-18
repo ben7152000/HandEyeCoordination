@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="authoring-tool" content="Adobe_Animate_CC">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <title>HandEyeCoordination</title>
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+    <script src="HandEyeCoordination.js?1694429394690"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/animatecc.js"></script>
+    <script src="./js/window.js"></script>
+</head>
+<body onload="init();" style="margin:0px;">
+<div id="app">
+
+    <!--  login form  -->
+    <div class="login-info">
+        <div class="logo">
+            <img src="./assets/fttw-logo.png" alt="fttw-logo">
+        </div>
+
+        <from class="login-form">
+            <div class="account">
+                <label>帳號</label>
+                <input name="account" id="account" type="text" placeholder="請輸入帳號" required>
+            </div>
+            <div class="password">
+                <label>密碼</label>
+                <input name="password" id="password" type="password" placeholder="請輸入密碼" required>
+            </div>
+            <button class="btn login">登入</button>
+        </from>
+    </div>
+
+
+    <!--  instructions  -->
+    <div class="main-info">
+        <!--  Logo  -->
+        <div class="logo">
+            <img src="./assets/fttw-logo.png" alt="fttw-logo">
+        </div>
+
+        <div class="instructions">
+            <h1>Instructions:</h1>
+            <p>Fly through the tube and avoid collisions with obstacles.</p>
+            <br/>
+            <p>Control the flight by dragging the ball inside the circle. Speed increases automatically when passing an opening and can be decreased with the "F" keyboard key. Speed can be increased with the "D" keyboard key.</p>
+            <br/>
+            <p>It is advised to do this test in full screen mode.</p>
+            <p>Press the full screen icon on the lower right end side of this screen to enter full screen mode:</p>
+        </div>
+
+        <div class="screen-enlarge">
+            <img src="./assets/screen-enlarge.png" alt="screen-enlarge">
+        </div>
+
+        <button class="btn start">Start Test</button>
+    </div>
+
+    <!--  game  -->
+    <div class="game-info">
+        <div class="game-score">
+            <span class="score-title">SCORE</span>
+            <span id="game-score"></span>
+        </div>
+
+        <div class="game-time">
+            <span id="game-time-min"></span>
+            <span> : </span>
+            <span id="game-time-sec"></span>
+        </div>
+
+        <div class="game-speed">
+            <span class="speed-title">SPEED</span>
+            <span id="game-speed"></span>
+        </div>
+
+        <div class="game-content">
+            <div class="interface-control">
+                <div class="ball-interface"></div>
+            </div>
+            <div class="game-control">
+                <div class="drag-control">
+                    <img src="./assets/drag.png" alt="drag">
+                    <div id="ball-control" class="ball-control"></div>
+                </div>
+                <div class="speed-control">
+                    <button id="up" class="up">
+                        <img src="./assets/up.png" alt="ip">
+                    </button>
+                    <button id="down" class="down">
+                        <img src="./assets/down.png" alt="down">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  result  -->
+    <div class="result-info">
+        <!--  Logo  -->
+        <div class="logo">
+            <img src="./assets/fttw-logo.png" alt="fttw-logo">
+        </div>
+
+        <div class="result-content">
+            <h1>Passed openings:</h1>
+            <span id="passed"></span>
+        </div>
+        <div class="result-content">
+            <h1>Missed openings:</h1>
+            <span id="missed"></span>
+        </div>
+        <div class="result-content">
+            <h1>Performance:</h1>
+            <span id="performance"></span>
+        </div>
+        <button class="btn restart">Restart</button>
+    </div>
+
+    <div id="animation_container" style="background-color:rgba(214, 214, 214, 1.00); width:960px; height:600px">
+        <canvas id="canvas" width="960" height="600" style="position: absolute; display: block; background-color:rgba(214, 214, 214, 1.00);"></canvas>
+        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:960px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
+        </div>
+    </div>
+</div>
+
+<script type="module" src="./js/index.js"></script>
+</body>
+</html>
