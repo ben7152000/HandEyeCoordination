@@ -65,7 +65,9 @@ let animateSpeed = 0.05
 const resetAnimateSpeed = 0.1
 let collision = false
 let checked = false
-const holeImages = [IMAGE1, IMAGE2]
+let isGameInfo = false
+let scene, camera, renderer
+const holeImages = [IMAGE1, IMAGE2, IMAGE3]
 const userInfo = {
   account: 'FTTW',
   password: 'Afttw4785',
@@ -97,6 +99,7 @@ function goToInstructionPage() {
 function goToGamePage() {
   mainInfo.style.display = NONE
   gameInfo.style.display = FLEX
+  isGameInfo = true
 }
 
 /**
@@ -105,6 +108,7 @@ function goToGamePage() {
 function goToResultPage() {
   gameInfo.style.display = NONE
   resultInfo.style.display = FLEX
+  isGameInfo = false
 }
 
 /**
@@ -146,10 +150,7 @@ function outputResult() {
 function resetResult() {
   passed = 0
   missed = 0
-  speed = resetSpeed
-  animateSpeed = resetAnimateSpeed
   performanceRate = 0
-  collision = false
 }
 
 /**
@@ -484,12 +485,12 @@ function setHoleImages(scene, z) {
   const imageIndex = randomSymbol(holeImages)
   const image = holeImages[imageIndex]
 
-// 設定三圓洞圖形
+  // 設定三圓洞圖形
   if (image === IMAGE1) {
     const holeParams = [
-      { radius: 0.8, x: 0.0000001, y: 1.1 },
-      { radius: 0.8, x: -0.9, y: -0.65 },
-      { radius: 0.8, x: 0.9, y: -0.65 }
+      { radius: 0.7, x: 0.0000001, y: 1.1 },
+      { radius: 0.7, x: -0.9, y: -0.65 },
+      { radius: 0.7, x: 0.9, y: -0.65 }
     ]
     if (Array.isArray(holeParams)) {
       for (const hole of holeParams) {
@@ -502,10 +503,10 @@ function setHoleImages(scene, z) {
     }
   }
 
-// 設定中間長方形
+  // 設定中間長方形
   if (image === IMAGE2) {
     const holeWidth = 2.5;
-    const holeHeight = 1.5;
+    const holeHeight = 1;
     const holeX = -holeWidth / 2;
     const holeY = -holeHeight / 2;
     const holePath = new THREE.Path();
@@ -518,12 +519,11 @@ function setHoleImages(scene, z) {
     circleShape.holes.push(holePath)
   }
 
+  // 設定中間洞
   if (image === IMAGE3) {
-    const holePath1 = new THREE.Path().absarc(0, 0, 1.8, 0, Math.PI * 2, false)
-    const holePath2 = new THREE.Path().absarc(0, 0, 1.8, 0, Math.PI, true)
+    const holePath = new THREE.Path().absarc(0, 0, 0.6, 0, Math.PI * 2, false)
 
-    circleShape.holes.push(holePath1)
-    circleShape.holes.push(holePath2)
+    circleShape.holes.push(holePath)
   }
 
   if (image === IMAGE4) {}
@@ -629,15 +629,18 @@ function renderHollowCircle(scene) {
  */
 function initAnimate() {
   // 場景設置
-  const scene = new THREE.Scene()
-  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-  const renderer = new THREE.WebGLRenderer()
+  scene = new THREE.Scene()
+  camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+  renderer = new THREE.WebGLRenderer()
 
   // 場景渲染
   renderer.setSize( canvasWidth, canvasHeight )
   renderer.setClearColor(0x296FBA, 1)
   interfaceControl.appendChild( renderer.domElement )
   camera.position.set(cameraXPosition, cameraYPosition, cameraZPosition)
+  collision = false
+  speed = resetSpeed
+  animateSpeed = 0.05
 
   // 中空的洞
   renderHollowCircle(scene)
@@ -648,7 +651,8 @@ function initAnimate() {
   }
 
   function animate() {
-    requestAnimationFrame( animate )
+    if (!isGameInfo) return
+    requestAnimationFrame(animate)
     xyAxisMove(camera)
     animateRotated(scene)
     checkCameraCollision(camera, scene)
