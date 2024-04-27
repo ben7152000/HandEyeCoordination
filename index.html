@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="authoring-tool" content="Adobe_Animate_CC">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <title>HandEyeCoordination</title>
-    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-    <script src="HandEyeCoordination.js?1694429394690"></script>
     <link rel="stylesheet" href="./css/index.css">
-    <script src="./js/animatecc.js"></script>
     <script src="./js/window.js"></script>
 </head>
-<body onload="init();" style="margin:0px;">
+<body>
 <div id="app">
+    <!--  startup animation  -->
+    <div class="startup-animation">
+        <img src="./assets/fttw-logo.png" alt="fttw-logo">
+    </div>
 
     <!--  login form  -->
     <div class="login-info">
@@ -117,12 +117,6 @@
             <span id="performance"></span>
         </div>
         <button class="btn restart">Restart</button>
-    </div>
-
-    <div id="animation_container" style="background-color:rgba(214, 214, 214, 1.00); width:960px; height:600px">
-        <canvas id="canvas" width="960" height="600" style="position: absolute; display: block; background-color:rgba(214, 214, 214, 1.00);"></canvas>
-        <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:960px; height:600px; position: absolute; left: 0px; top: 0px; display: block;">
-        </div>
     </div>
 </div>
 
