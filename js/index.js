@@ -661,6 +661,24 @@ function initAnimate() {
 }
 
 /**
+ *  全螢幕模式
+ */
+const screenEnlarge = document.querySelector('.screen-enlarge')
+screenEnlarge.addEventListener('click', () => {
+  const element = document.documentElement;
+
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+})
+
+/**
  *  API
  */
 const url = 'https://sheets.googleapis.com/v4/spreadsheets'
