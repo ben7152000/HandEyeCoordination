@@ -68,6 +68,7 @@ let checked = false
 let isGameInfo = false
 let scene, camera, renderer
 const holeImages = [IMAGE1, IMAGE2, IMAGE3]
+let users = []
 const userInfo = { account: '', password: '' }
 
 /**
@@ -112,10 +113,13 @@ function goToResultPage() {
  * 登入
  */
 function loginHandler() {
-  const userAccount = account.value
-  const userPassword = password.value
+  const _user = users.find(user => {
+    if (user.account === account.value) {
+      return user
+    }
+  })
 
-  if (userAccount === userInfo.account && userPassword === userInfo.password) {
+  if (_user && _user.password === password.value) {
     goToInstructionPage()
     loginInfo.style.display = NONE
   } else {
@@ -690,8 +694,15 @@ const key = 'AIzaSyCRhiUOa03yd0PobVYEnm5Ch0yXjFh9hww'
 fetch(`${url}/${id}/values/${AccountSheet}?alt=json&key=${key}`)
   .then(res => res.json())
   .then(res => {
-    userInfo.account = res.values[1][1]
-    userInfo.password = res.values[1][2]
+    const keys = res.values[0]
+    const result = res.values.slice(1).map(row => {
+      const obj = {}
+      keys.forEach((key, index) => {
+        obj[key.toLowerCase()] = row[index]
+      })
+      return obj
+    })
+    users = result
   })
 
 fetch(`${url}/${id}/values/${ParamsSheet}?alt=json&key=${key}`)
