@@ -23,18 +23,18 @@
 }
 
 .account label, .password label {
-    margin-bottom: 4px;
-    font-size: 20px;
+    margin-bottom: 8px;
+    font-size: 24px;
     font-weight: 600;
 }
 
 .account input, .password input {
     border: none;
     outline: none;
-    width: 150px;
-    height: 30px;
-    font-size: 16px;
-    padding-left: 4px;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    padding-left: 8px;
 }
 
 .account input::placeholder, .password input::placeholder {
@@ -43,9 +43,9 @@
 
 .login {
     margin-top: 16px;
-    width: 150px;
-    height: 30px;
-    font-size: 16px;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
     font-weight: 400;
 }
 
